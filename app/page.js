@@ -1,12 +1,12 @@
-import { CTA } from "@/components";
+import { Hero, InquiryForm } from "@/components";
 
 export default function Home() {
 
-  
+
   return (
-    <main>
-      <h2 className="text-5xl text-center">Here we go</h2>
-      <CTA />
+    <main className="text-black-2">
+      <Hero />
+      <InquiryForm />
     </main>
   );
 }
