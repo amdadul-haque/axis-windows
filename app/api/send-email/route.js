@@ -17,10 +17,12 @@ export async function POST(request) {
       return string.charAt(0).toUpperCase() + string.slice(1);
     }
 
+    const sendPersons = 'amdad.zatiq@gmail.com, admin@axisremodeling.com'
+
     const mailOption = {
       from: formData.email,
-      to: "amdad.zatiq@gmail.com",
-      // to: "bigbinservices@gmail.com",
+      // to: "amdad.zatiq@gmail.com",
+      to: sendPersons,
       subject: `${formData.fullName} is looking for you.`,
       //     html: `
       //   <div style="font-family: Arial, sans-serif; color: #333; padding: 20px; background-color: #f4f4f4; border: 1px solid #ddd; border-radius: 8px;">

@@ -36,6 +36,7 @@ export const inquirySteps = [
   {
     id: 7,
     title: "What is your ZIP Code?",
+    label: "ZIP Code: *",
     inputType: "text",
     inputName: "zipCode",
   },
@@ -43,9 +44,9 @@ export const inquirySteps = [
     id: 8,
     title: "Who should we prepare this free estimate for?",
     inputs: [
-      { inputType: "text", inputName: "fullName", placeholder: "Full Name" },
-      { inputType: "email", inputName: "email", placeholder: "Email Address" },
-      { inputType: "tel", inputName: "phoneNumber", placeholder: "Phone Number" },
+      { label: "Enter Name: *", inputType: "text", inputName: "fullName", placeholder: "Full Name" },
+      { label: "Enter Email: *", inputType: "email", inputName: "email", placeholder: "Email Address" },
+      { label: "Enter Phone: *", inputType: "tel", inputName: "phoneNumber", placeholder: "Phone Number" },
     ],
   },
 ];

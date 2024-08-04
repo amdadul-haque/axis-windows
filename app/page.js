@@ -8,6 +8,7 @@ export default function Home() {
       <Hero />
       <InquiryForm />
       <WindowOptions />
+      <InquiryForm />
       <WhyReplacement />
     </main>
   );
