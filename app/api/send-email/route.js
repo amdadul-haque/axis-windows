@@ -17,6 +17,7 @@ export async function POST(request) {
       return string.charAt(0).toUpperCase() + string.slice(1);
     }
 
+    // const sendPersons = 'amdad.zatiq@gmail.com'
     const sendPersons = 'amdad.zatiq@gmail.com, admin@axisremodeling.com'
 
     const mailOption = {

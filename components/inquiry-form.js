@@ -16,7 +16,9 @@ const InquiryForm = () => {
     isSubmitting,
     setIsSubmitting,
     isSubmitted,
-    setIsSubmitted
+    setIsSubmitted,
+    fullName,
+    setFullName
   } = useInquiry();
   const [errors, setErrors] = useState({});
 
@@ -95,6 +97,7 @@ const InquiryForm = () => {
     } finally {
       setIsSubmitting(false);
       setIsSubmitted(true);
+      setFullName(formData.fullName);
       setFormData({});
     }
   };
@@ -115,10 +118,10 @@ const InquiryForm = () => {
         <div className='layout'>
           {isSubmitted ?
             <div>
-              <h2 className='font-heading font-bold text-offWhite text-center text-5xl capitalize'>{formData?.fullName ? `${formData.fullName},` : ''} your request has been <span className='text-primary'>Approved</span>🎉</h2>
+              <h2 className='font-heading font-bold text-offWhite text-center text-xl md:text-2xl xl:text-3xl capitalize'>{fullName ? `${fullName},` : ''} your request has been <span className='text-primary'>Approved</span>🎉</h2>
             </div> :
             <>
-              <h2 className='font-heading font-bold text-primary text-center text-5xl'>Let us know your need</h2>
+              <h2 className='font-heading font-bold text-primary text-center text-2xl md:text-3xl xl:text-5xl'>Let us know your need</h2>
               <div className='max-w-screen-md mx-auto bg-gray-50 rounded-xl shadow-md px-5 py-5 md:px-8 md:py-7 xl:px-16 xl:py-10 mt-10'>
                 <div className='h-2 w-1/2 mx-auto bg-gray-300 rounded-full'>
                   <div className={`h-full bg-primary rounded-full`}

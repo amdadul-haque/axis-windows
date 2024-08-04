@@ -8,6 +8,7 @@ export const InquiryProvider = ({ children }) => {
   const [formData, setFormData] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [fullName, setFullName] = useState('');
 
   return (
     <InquiryContext.Provider value={{
@@ -19,7 +20,9 @@ export const InquiryProvider = ({ children }) => {
       setIsSubmitting,
       isSubmitted,
       setIsSubmitted,
-    }}>z
+      fullName,
+      setFullName
+    }}>
       {children}
     </InquiryContext.Provider>
   );
