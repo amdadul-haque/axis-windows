@@ -12,6 +12,22 @@ module.exports = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      colors: {
+        primary: '#0062CC', // or '#10B981' for green
+        // primary: '#10B981' ,
+        secondary: '#6B7280', // or '#A855F7' for earthy tone
+        darkGray: '#1F2937',
+        mediumGray: '#374151',
+        lightGray: '#F3F4F6',
+        offWhite: '#E5E7EB',
+        "black-1": '#111827',
+        "black-2": '#1F2937',
+        "black-3": '#374151',
+      },
+      fontFamily: {
+        heading: ['Montserrat', 'sans-serif'],
+        paragraph: ['Roboto', 'sans-serif'],
+      },
     },
   },
   plugins: [],
