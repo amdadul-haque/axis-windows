@@ -1,12 +1,14 @@
-import { Hero, InquiryForm } from "@/components";
+import { Hero, InquiryForm, WhyReplacement, WindowOptions } from "@/components";
 
 export default function Home() {
 
 
   return (
-    <main className="text-black-2">
+    <main className="text-black-2 leading-normal font-paragraph">
       <Hero />
       <InquiryForm />
+      <WindowOptions />
+      <WhyReplacement />
     </main>
   );
 }

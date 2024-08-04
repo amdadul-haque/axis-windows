@@ -135,7 +135,7 @@ const InquiryForm = () => {
       <div className='layout transition'>
         <h2 className='font-heading font-bold text-primary text-center text-5xl'>Let us know your need</h2>
         <div className='max-w-screen-md mx-auto bg-gray-50 rounded-xl shadow-md px-5 py-5 md:px-8 md:py-7 xl:px-16 xl:py-10 mt-10'>
-          <div className='h-2 w-1/2 mx-auto bg-gray-200 rounded-full'>
+          <div className='h-2 w-1/2 mx-auto bg-gray-300 rounded-full'>
             <div className={`h-full bg-primary rounded-full`}
               style={{ width: `${(currentStep + 1) * (100 / inquirySteps.length)}%` }}
             >
@@ -171,7 +171,7 @@ const InquiryForm = () => {
                     onChange={handleInputChange}
                     placeholder='Enter your ZIP Code'
                     // required/
-                    className='w-full pl-10 border-2 border-gray-300 rounded-md px-3 py-2 bg-white shadow focus:outline-none  focus:border-primary'
+                    className='w-full pl-10 border-2 border-gray-300 rounded-md px-3 py-2 bg-white shadow focus:outline-none  focus:border-primary transition duration-300'
                   />
                   <FaMapMarkerAlt className='absolute top-0 bottom-0 left-3 text-primary h-full' />
                 </div>
@@ -188,7 +188,7 @@ const InquiryForm = () => {
                     value={formData[input.inputName] || ''}
                     onChange={handleInputChange}
                     // required
-                    className='w-full pl-10 border-2 border-gray-300 rounded-md px-3 py-2 bg-white shadow focus:outline-none  focus:border-primary'
+                    className='w-full pl-10 border-2 border-gray-300 rounded-md px-3 py-2 bg-white shadow focus:outline-none  focus:border-primary transition duration-300'
                   />
                   {index == 0 && <IoPerson className='absolute top-0 bottom-0 left-3 text-primary text-xl h-full' />}
                   {index == 1 && <IoIosMail className='absolute top-0 bottom-0 left-3 text-primary text-xl h-full' />}

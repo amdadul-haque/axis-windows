@@ -7,7 +7,7 @@ const Hero = () => {
     <div className='w-full pb-20'>
       <div className='layout'>
         
-        <h1 className='text-3xl md:text-4xl lg:text-5xl font-bold mt-10 mb-8 text-center'> <span className='text-primary'>High-Quality Window</span> Installation Services</h1>
+        <h1 className='text-3xl md:text-4xl lg:text-5xl font-bold mt-10 mb-8 text-center'> <span className='text-primary'>High-Quality Window</span> Replacement Services</h1>
 
         <div className='shadow w-full rounded-xl md:rounded-2xl xl:rounded-3xl'>
           {/* <iframe
@@ -31,7 +31,7 @@ const Hero = () => {
                   <Image src={item.icon} alt={item.title} width={50} height={50} className='svg h-10 w-10 xl:h-14 xl:w-14' />
                 </div>
                 <div>
-                  <h3 className='text-lg md:text-xl xl:text-2xl font-semibold'>{item.title}</h3>
+                  <h3 className='text-lg md:text-xl xl:text-2xl font-semibold '>{item.title}</h3>
                   <p className='text-sm md:text-base xl:text-lg'>{item.description}</p>
                 </div>
               </div>
