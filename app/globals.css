@@ -23,7 +23,8 @@
 }
 
 .inquiry-bg {
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/images/form-bg.png');
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/images/form-bg-2.jpeg');
+  /* background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/images/form-bg-3.webp'); */
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
