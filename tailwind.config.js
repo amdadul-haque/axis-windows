@@ -25,9 +25,13 @@ module.exports = {
         "black-3": '#374151',
       },
       fontFamily: {
-        heading: ['Montserrat', 'sans-serif'],
+        // heading: ['Montserrat', 'sans-serif'],
+        heading: ["Raleway", 'sans-serif'],
         paragraph: ['Roboto', 'sans-serif'],
       },
+      boxShadow: {
+        'xl': '0 0px 25px -5px rgb(0 0 0 / 0.1), 0 0px 10px -6px rgb(0 0 0 / 0.1)',
+      }
     },
   },
   plugins: [],

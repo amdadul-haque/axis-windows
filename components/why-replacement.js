@@ -1,5 +1,10 @@
+'use client'
 import React from 'react';
 import { FaDollarSign, FaHome, FaEye, FaPaintBrush, FaShapes } from 'react-icons/fa';
+
+import { motion } from 'framer-motion';
+import Image from 'next/image';
+import SectionHeading from './utils/section-heading';
 
 const benefits = [
   {
@@ -33,25 +38,48 @@ const WhyReplacement = () => {
   return (
     <div className="bg-gray-100 py-10 md:py-14 xl:py-20">
       <div className="layout transition">
-        <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold mt-10 mb-8 text-center font-heading'>Why Replace Windows?</h2>
-        <div className="mx-auto bg-white rounded-xl shadow-md px-5 py-5 md:px-8 md:py-7 xl:px-12 xl:py-10 grid grid-cols-1 md:grid-cols-2 gap-10 xl:gap-16">
-          <div>
-            <p className="text-lg mb-6">
+        <SectionHeading heading="Why Replace Windows?" />
+        <div className=" mx-auto h-full flex md:flex-row items-start justify-between gap-10 xl:gap-16">
+          <div className='w-full'>
+            <motion.p className="text-lg mb-6 text-black-3"
+              initial={{ opacity: 0, x: -100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+            >
               A replacement window project has many benefits; adding value, improving comfort, lowering utility bills, etc. Replacing windows can also improve in-home health. Moldy and leaky windows can cause expensive repairs and hurt the respiratory system of everyone, especially children. Key benefits include:
-            </p>
-            <img src="/images/windows/7.webp" alt="Replacement Windows" className="rounded-xl shadow-md aspect-[1024/681]" />
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, x: -100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: .6 }}
+              delay={0.2}
+              className="rounded-xl shadow-md aspect-[1024/681]"
+            >
+              <Image
+                src="/images/windows/7.webp"
+                alt="Replacement Windows"
+                className="rounded-xl shadow-md aspect-[1024/681]"
+                width={1024}
+                height={681}
+              />
+            </motion.div>
           </div>
-          <div>
+          <div className='w-full h-full flex flex-col gap-5'>
             {benefits.map((benefit, index) => (
-              <div key={index} className="flex items-start mb-5">
-                <div className='min-w-12 md:min-w-14 xl:min-w-16'>
-                  <benefit.icon className="text-primary text-2xl md:text-3xl xl:text-4xl mr-3 mt-2" />
+              <motion.div key={index} className="flex gap-4 items-center shadow-xl rounded-lg p-3 h-full"
+                initial={{ opacity: 0, x: 100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.3 + index * 0.15 }}
+                delay={0.0 + index * 0.15}
+              >
+                <div className='min-w-12 md:min-w-16 xl:min-w-20 h-full flex items-center justify-center px-3 py-3 rounded-lg bg-primary/20'>
+                  <benefit.icon className="text-primary text-2xl md:text-3xl xl:text-5xl mt-2" />
                 </div>
-                <div>
-                  <h3 className="text-xl font-semibold">{benefit.title}</h3>
-                  <p>{benefit.description}</p>
+                <div className='h-full'>
+                  <h3 className="text-base md:text-xl font-semibold font-heading">{benefit.title}</h3>
+                  <p className='font-paragraph text-black-3'>{benefit.description}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

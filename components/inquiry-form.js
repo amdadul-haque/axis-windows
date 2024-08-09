@@ -6,6 +6,9 @@ import { IoPerson } from "react-icons/io5";
 import { IoIosMail } from "react-icons/io";
 import { LuSend } from "react-icons/lu";
 import { useInquiry } from '@/context/Inquiry-context';
+import SectionHeading from './utils/section-heading';
+
+import { motion } from 'framer-motion';
 
 const InquiryForm = () => {
   const {
@@ -114,15 +117,19 @@ const InquiryForm = () => {
 
   return (
     <> {
-      <div className='bg-[#444] py-10 md:py-14 xl:py-20'>
+      <div className='inquiry-bg py-10 md:py-14 xl:py-20'>
         <div className='layout'>
           {isSubmitted ?
             <div>
               <h2 className='font-heading font-bold text-offWhite text-center text-xl md:text-2xl xl:text-3xl capitalize'>{fullName ? `${fullName},` : ''} your request has been <span className='text-primary'>Approved</span>🎉</h2>
             </div> :
             <>
-              <h2 className='font-heading font-bold text-primary text-center text-2xl md:text-3xl xl:text-5xl'>Let us know your need</h2>
-              <div className='max-w-screen-md mx-auto bg-gray-50 rounded-xl shadow-md px-5 py-5 md:px-8 md:py-7 xl:px-16 xl:py-10 mt-10'>
+              <SectionHeading heading="Let us about know your need" className={"text-white"} />
+              <motion.div className='max-w-screen-md mx-auto bg-gray-50 rounded-xl shadow-md px-5 py-5 md:px-8 md:py-7 xl:px-16 xl:py-10 mt-12 md:mt-16 xl:mt-20'
+                initial={{ y: 150, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.3 }}
+              >
                 <div className='h-2 w-1/2 mx-auto bg-gray-300 rounded-full'>
                   <div className={`h-full bg-primary rounded-full`}
                     style={{ width: `${(currentStep + 1) * (100 / inquirySteps.length)}%` }}
@@ -215,7 +222,7 @@ const InquiryForm = () => {
                     </button>}
                   </div>
                 </form>
-              </div>
+              </motion.div>
             </>}
         </div>
       </div>

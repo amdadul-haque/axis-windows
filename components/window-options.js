@@ -1,55 +1,89 @@
+'use client'
+import { windowOptions } from '@/public/data/data';
 import Image from 'next/image'
-import React from 'react'
+import React, { useRef, useState } from 'react'
+import { FaChevronDown, FaChevronUp } from 'react-icons/fa'
+
+import { motion } from 'framer-motion'
+import Button from './utils/button';
+import SectionHeading from './utils/section-heading';
+
 
 const WindowOptions = () => {
-  const windowOptions = [
-    {
-      title: "Double-Hung",
-      description: "Double-hung windows feature two operable sashes that move up and down independently, allowing for versatile ventilation options. Their classic design complements various home styles, and the vertical sliding mechanism saves space.",
-      image: "/images/windows/1.webp",
-    },
+  const [showMore, setShowMore] = useState(false);
 
-    {
-      title: "Sliding",
-      description: "Sliding windows have one or more sashes that slide horizontally within the frame. They are easy to operate, provide ample ventilation, and are ideal for spaces with horizontal openings.",
-      image: "/images/windows/2.webp",
-    },
-    {
-      title: "Casement ",
-      description: "Casement windows are hinged at the side and open outward like a door, usually operated by a crank. They offer excellent ventilation and unobstructed views, making them a great choice for hard-to-reach areas.",
-      image: "/images/windows/3.webp",
-    },
-    {
-      title: "Picture",
-      description: "Picture windows are large, fixed-pane windows that provide expansive views and allow maximum natural light. They do not open, offering excellent insulation and energy efficiency, ideal for framing outdoor scenes in living areas.",
-      image: "/images/windows/4.webp",
-    },
-    {
-      title: "Awning ",
-      description: "Awning windows are hinged at the top and open outward from the bottom, creating an awning-like effect. They provide good ventilation and protection from the rain, making them ideal for bathrooms and kitchens.",
-      image: "/images/windows/5.jpg",
-    },
-    {
-      title: "Garden ",
-      description: "Garden windows extend outward from the home, creating a small, greenhouse-like space. They are perfect for growing plants and herbs indoors, adding light and a touch of nature to kitchens and dining areas.",
-      image: "/images/windows/6.webp",
-    },
-    {
-      title: "Bay ",
-      description: "Bay windows project outward from the home's exterior wall, usually consisting of a central fixed window flanked by two operable windows. They create additional interior space and offer panoramic views, enhancing the room's aesthetics.",
-      image: "/images/windows/7.webp",
-    },
-    {
-      title: "Bow ",
-      description: "Bow windows are similar to bay windows but consist of four or more equal-sized windows, creating a gentle, curved arch. They provide expansive views and a larger seating or display area, adding elegance to any room.",
-      image: "/images/windows/8.webp",
-    },
-  ]
+  const buttonRef = useRef(null);
+  const handleToggle = () => {
+    setShowMore(!showMore);
+    setTimeout(() => {
+      if (buttonRef.current) {
+        buttonRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
+      }
+    }, 300);
+  };
+
+
+
+
+  const itemsToShow = showMore ? windowOptions.length : 4;
+
   return (
     <div className='py-16 md:py-20'>
       <div className='layout'>
-        <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold mt-10 mb-8 text-center font-heading'>Popular Window Options</h2>
-        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'>
+        {/* <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold mt-10 mb-8 text-center font-heading'>Popular Window Options</h2> */}
+        <SectionHeading heading='Choose from a variety of window options'  />
+        <div className='flex flex-col gap-5'>
+          {windowOptions && windowOptions.slice(0, itemsToShow).map((item, index) => (
+            <motion.div key={index} className='p-3 rounded-lg shadow-xl'
+              initial={{ opacity: 0, x: index % 2 === 0 ? -150 : 150 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center`}>
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  height={200}
+                  width={300}
+                  className='w-full md:w-1/2 rounded-lg'
+                />
+                <div className='w-full md:w-1/2 py-5 md:p-10 lg:p-16 xl:p-20'>
+                  <h3 className='text-xl md:text-2xl lg:text-3xl font-bold mb-2 flex items-center font-heading'>
+                    <div className='p-3 flex items-center justify-center bg-primary/20 mr-3 rounded-lg md:rounded-xl'>
+                      <item.icon className='text-primary' /> {/* Icon added here */}
+                    </div>
+                    {item.title}
+                  </h3>
+                  <p className='text-sm md:text-base xl:text-lg font-paragraph text-black-3'>{item.description}</p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        <div className='flex justify-center mx-auto md:pt-12 py-8'
+          ref={buttonRef}
+        >
+          <button
+            onClick={handleToggle}
+            className='btn'
+          >
+            {showMore ? 'See Less' : 'See More'}
+            {showMore ? <FaChevronUp className='ml-2' /> : <FaChevronDown className='ml-2' />}
+          </button>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export { WindowOptions }
+
+
+
+
+
+{/* <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'>
           {windowOptions && windowOptions.map((item, index) => (
             <div key={index} className='shadow-lg rounded-xl p-6 hover:shadow-2xl transition'>
               <Image
@@ -63,10 +97,4 @@ const WindowOptions = () => {
             </div>
           ))
           }
-        </div>
-      </div>
-    </div>
-  )
-}
-
-export { WindowOptions }
+        </div> */}
